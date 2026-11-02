@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Task Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand">
+          <h1>My Tasks</h1>
+          <p class="subtitle">
+            A task tracker for the first exercise in web development.<br />Made
+            by Migel H. Tan.
+          </p>
+        </div>
+        <div class="progress" role="img" aria-label="Completion progress">
+          <svg viewBox="0 0 44 44" aria-hidden="true">
+            <circle class="track" cx="22" cy="22" r="18"></circle>
+            <circle
+              class="bar"
+              id="progressBar"
+              cx="22"
+              cy="22"
+              r="18"
+            ></circle>
+          </svg>
+          <span id="progressText">0%</span>
+        </div>
+      </header>
+
+      <div class="composer">
+        <div class="add-row">
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Add a new task..."
+            autocomplete="off"
+            aria-label="New task"
+          />
+          <button
+            id="addButton"
+            data-icon="plus"
+            title="Add task"
+            aria-label="Add task"
+          ></button>
+        </div>
+        <div class="meta-row">
+          <label class="field">
+            <span data-icon="tag"></span>
+            <input
+              type="text"
+              id="contextInput"
+              list="contextList"
+              placeholder="Subject or category"
+              autocomplete="off"
+              aria-label="Subject or category"
+            />
+          </label>
+          <label class="field">
+            <span data-icon="calendar"></span>
+            <input type="date" id="dueInput" aria-label="Due date" />
+          </label>
+          <div
+            class="swatches"
+            id="swatches"
+            role="radiogroup"
+            aria-label="Task color"
+          ></div>
+        </div>
+        <datalist id="contextList"></datalist>
+      </div>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button
+            class="icon-btn filter active"
+            data-filter="all"
+            data-icon="list"
+            title="All"
+            aria-label="Show all tasks"
+            aria-pressed="true"
+          ></button>
+          <button
+            class="icon-btn filter"
+            data-filter="active"
+            data-icon="circle"
+            title="Active"
+            aria-label="Show active tasks"
+            aria-pressed="false"
+          ></button>
+          <button
+            class="icon-btn filter"
+            data-filter="done"
+            data-icon="circle-check"
+            title="Completed"
+            aria-label="Show completed tasks"
+            aria-pressed="false"
+          ></button>
+        </div>
+        <div class="toolbar-end">
+          <span id="taskCount" class="count"></span>
+          <button
+            id="clearButton"
+            class="icon-btn"
+            data-icon="list-x"
+            title="Clear completed"
+            aria-label="Clear completed tasks"
+          ></button>
+        </div>
+      </div>
+
+      <ul id="taskList"></ul>
+
+      <div id="emptyState" class="empty" hidden>
+        <span data-icon="clipboard"></span>
+        <p>Nothing here</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
